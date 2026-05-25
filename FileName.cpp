@@ -125,6 +125,19 @@ void Culc(LostWordVM_II& vm, LostWordVM_II::OPERATIONS op) {
 		Push(vm, ~(Pop(vm) ^ vm.B));
 		break;
 	}
+
+	switch (op) {
+	case LostWordVM_II::LSH:
+		vm.B = Pop(vm);
+		Push(vm, Pop(vm) << vm.B);
+		break;
+	case LostWordVM_II::RSH:
+		vm.B = Pop(vm);
+		Push(vm, Pop(vm) >> vm.B);
+		break;
+	
+	}
+
 }
 
 void Operation(LostWordVM_II& vm, LostWordVM_II::OPERATIONS op, LostWordVM_II::Register value) {
@@ -148,6 +161,16 @@ void Operation(LostWordVM_II& vm, LostWordVM_II::OPERATIONS op, LostWordVM_II::R
 	case LostWordVM_II::Nand:
 	case LostWordVM_II::Nor:
 	case LostWordVM_II::XNor:
+		Push(vm, value);
+		Culc(vm, op);
+		break;
+	}
+	switch (op) {
+	case LostWordVM_II::LSH:
+		Push(vm, value);
+		Culc(vm, op);
+		break;
+	case LostWordVM_II::RSH:
 		Push(vm, value);
 		Culc(vm, op);
 		break;
