@@ -32,6 +32,10 @@ struct LostWordVM_II {
 
 };
 
+std::size_t Size(const LostWordVM_II& vm) {
+	return vm.ST.size();
+}
+
 void Push(LostWordVM_II& vm, const LostWordVM_II::Register& value) {
 	vm.ST.push(value);
 }

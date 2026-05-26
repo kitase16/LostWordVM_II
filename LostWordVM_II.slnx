@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="LostWordVM_II.vcxproj" />
+  <Project Path="LostWordVM_II.vcxproj" Id="4b1a0b4b-6116-43e5-a378-25904d9faaae" />
 </Solution>
